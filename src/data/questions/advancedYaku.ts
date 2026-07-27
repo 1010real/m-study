@@ -56,6 +56,7 @@ export const advancedYakuQuestions: Question[] = [
       { id: 'chiitoitsu', han: 2 },
     ],
     dora: [{ kind: 'dora', count: 2 }],
+    doraIndicators: ['1m'],
     fuComponents: [{ type: 'base', label: '七対子固定', value: 25 }],
     explanationNotes: '七対子は常に25符固定（切り上げ計算を行わない）。翻数は5翻で満貫となる。',
   },

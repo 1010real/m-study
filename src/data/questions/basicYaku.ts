@@ -22,6 +22,7 @@ export const basicYakuQuestions: Question[] = [
       { id: 'tanyao', han: 1 },
     ],
     dora: [{ kind: 'dora', count: 1 }],
+    doraIndicators: ['5m'],
     fuComponents: [
       { type: 'base', label: '副底', value: 20 },
       { type: 'menzenRon', label: '門前加符（ロン）', value: 10 },
@@ -169,6 +170,8 @@ export const basicYakuQuestions: Question[] = [
       { kind: 'uradora', count: 1 },
       { kind: 'akadora', count: 1 },
     ],
+    doraIndicators: ['5m'],
+    uraDoraIndicators: ['2p'],
     fuComponents: [{ type: 'base', label: '平和・自摸固定', value: 20 }],
     explanationNotes:
       'ドラ・裏ドラ・赤ドラが1枚ずつ乗った実戦的な例。役の合計4翻にドラ3枚を加えて7翻（跳満）になる。',

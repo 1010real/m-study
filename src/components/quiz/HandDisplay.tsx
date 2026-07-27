@@ -26,15 +26,15 @@ function contextBadges(question: Question): string[] {
 
   badges.push(`自風:${WIND_LABEL[context.seatWind]}`, `場風:${WIND_LABEL[context.roundWind]}`)
 
-  const doraTotal = question.dora.reduce((sum, d) => sum + d.count, 0)
-  if (doraTotal > 0) badges.push(`ドラ${doraTotal}`)
-
   return badges
 }
 
 export function HandDisplay({ question }: { question: Question }) {
   const handTiles = renderHand(question.hand)
   const winTile = renderHand([question.winningTile])[0]
+  const doraIndicators = renderHand(question.doraIndicators ?? [])
+  const showUraDora = question.context.riichi || question.context.doubleRiichi
+  const uraDoraIndicators = renderHand(showUraDora ? (question.uraDoraIndicators ?? []) : [])
 
   return (
     <div className="hand-display">
@@ -59,6 +59,31 @@ export function HandDisplay({ question }: { question: Question }) {
               ))}
             </div>
           ))}
+        </div>
+      )}
+
+      {(doraIndicators.length > 0 || uraDoraIndicators.length > 0) && (
+        <div className="indicators">
+          {doraIndicators.length > 0 && (
+            <div className="indicator-row">
+              <span className="indicator-label">ドラ表示牌</span>
+              {doraIndicators.map((tile, i) => (
+                <span key={i} className={`tile tile-${tile.suit}`}>
+                  {tile.label}
+                </span>
+              ))}
+            </div>
+          )}
+          {uraDoraIndicators.length > 0 && (
+            <div className="indicator-row">
+              <span className="indicator-label">裏ドラ表示牌</span>
+              {uraDoraIndicators.map((tile, i) => (
+                <span key={i} className={`tile tile-${tile.suit}`}>
+                  {tile.label}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       )}
 
