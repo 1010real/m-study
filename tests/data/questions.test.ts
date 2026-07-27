@@ -45,4 +45,21 @@ describe('questions data', () => {
       expect(question.context.riichi || question.context.doubleRiichi).toBe(true)
     }
   })
+
+  const situationalFlags = [
+    ['haitei', 'haitei'],
+    ['houtei', 'houtei'],
+    ['rinshan', 'rinshan'],
+    ['chankan', 'chankan'],
+  ] as const
+
+  it.each(questions.map((q) => [q.id, q] as const))(
+    '%s: 海底・河底・嶺上開花・槍槓は状況フラグと役の有無が一致する（手牌だけでは判別できないため）',
+    (_id, question) => {
+      for (const [flagKey, yakuId] of situationalFlags) {
+        const hasYaku = question.yaku.some((y) => y.id === yakuId)
+        expect(question.context[flagKey]).toBe(hasYaku)
+      }
+    },
+  )
 })

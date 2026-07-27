@@ -23,6 +23,10 @@ function contextBadges(question: Question): string[] {
   if (context.doubleRiichi) badges.push('ダブルリーチ')
   else if (context.riichi) badges.push('リーチ')
   if (context.ippatsu) badges.push('一発')
+  if (context.haitei) badges.push('海底')
+  if (context.houtei) badges.push('河底')
+  if (context.rinshan) badges.push('嶺上開花')
+  if (context.chankan) badges.push('槍槓')
 
   badges.push(`自風:${WIND_LABEL[context.seatWind]}`, `場風:${WIND_LABEL[context.roundWind]}`)
 
