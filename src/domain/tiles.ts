@@ -8,6 +8,8 @@ export interface ParsedTile {
   rank: number
   suit: 'm' | 'p' | 's' | 'z'
   label: string
+  /** タイル画像のパス（public/tiles/ 配下、CC0: FluffyStuff/riichi-mahjong-tiles） */
+  imageSrc: string
 }
 
 export function parseTile(notation: TileNotation): ParsedTile {
@@ -18,12 +20,13 @@ export function parseTile(notation: TileNotation): ParsedTile {
   const rank = Number(match[1])
   const suit = match[2] as 'm' | 'p' | 's' | 'z'
   const index = rank - 1
+  const imageSrc = `/tiles/${notation}.svg`
 
   if (suit === 'z') {
-    return { notation, rank, suit, label: HONOR_LABEL[index] }
+    return { notation, rank, suit, label: HONOR_LABEL[index], imageSrc }
   }
 
-  return { notation, rank, suit, label: `${rank}${SUIT_KANJI[suit]}` }
+  return { notation, rank, suit, label: `${rank}${SUIT_KANJI[suit]}`, imageSrc }
 }
 
 export function renderHand(tiles: TileNotation[]): ParsedTile[] {

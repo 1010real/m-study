@@ -11,11 +11,6 @@
   --incorrect: #dc2626;
   --incorrect-bg: rgba(220, 38, 38, 0.12);
   --shadow: rgba(0, 0, 0, 0.08) 0 4px 12px -2px;
-  --tile-bg: #fffdf7;
-  --tile-m: #c0392b;
-  --tile-p: #1d5fbf;
-  --tile-s: #1a7a3c;
-  --tile-z: #33302e;
 
   font: 16px/1.6 system-ui, 'Segoe UI', Roboto, sans-serif;
   color-scheme: light dark;
@@ -37,11 +32,6 @@
     --incorrect: #f87171;
     --incorrect-bg: rgba(248, 113, 113, 0.15);
     --shadow: rgba(0, 0, 0, 0.4) 0 4px 12px -2px;
-    --tile-bg: #2a2b33;
-    --tile-m: #f87171;
-    --tile-p: #7fb3ff;
-    --tile-s: #6ee7a3;
-    --tile-z: #e5e4e7;
   }
 }
 
@@ -58,11 +48,6 @@
   --incorrect: #f87171;
   --incorrect-bg: rgba(248, 113, 113, 0.15);
   --shadow: rgba(0, 0, 0, 0.4) 0 4px 12px -2px;
-  --tile-bg: #2a2b33;
-  --tile-m: #f87171;
-  --tile-p: #7fb3ff;
-  --tile-s: #6ee7a3;
-  --tile-z: #e5e4e7;
   color-scheme: dark;
 }
 
