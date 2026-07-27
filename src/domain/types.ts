@@ -118,6 +118,10 @@ export interface Question {
   context: QuestionContext
   yaku: AppliedYaku[]
   dora: DoraEntry[]
+  /** ドラ表示牌（常時公開）。対応する dora の枚数と整合する必要がある */
+  doraIndicators?: TileNotation[]
+  /** 裏ドラ表示牌。リーチ和了時のみ公開される */
+  uraDoraIndicators?: TileNotation[]
   fuComponents: FuComponent[]
   explanationNotes?: string
   manualDistractors?: PointsResult[]

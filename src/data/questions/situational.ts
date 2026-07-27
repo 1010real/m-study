@@ -104,6 +104,7 @@ export const situationalQuestions: Question[] = [
       { id: 'tanyao', han: 1 },
     ],
     dora: [{ kind: 'dora', count: 1 }],
+    doraIndicators: ['6p'],
     fuComponents: [
       { type: 'base', label: '副底', value: 20 },
       { type: 'menzenRon', label: '門前加符（ロン）', value: 10 },
@@ -131,6 +132,7 @@ export const situationalQuestions: Question[] = [
       { id: 'tanyao', han: 1 },
     ],
     dora: [{ kind: 'dora', count: 2 }],
+    doraIndicators: ['4s'],
     fuComponents: [
       { type: 'base', label: '副底', value: 20 },
       { type: 'menzenRon', label: '門前加符（ロン）', value: 10 },

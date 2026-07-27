@@ -29,3 +29,18 @@ export function parseTile(notation: TileNotation): ParsedTile {
 export function renderHand(tiles: TileNotation[]): ParsedTile[] {
   return tiles.map(parseTile)
 }
+
+/** ドラ表示牌から実際のドラ牌を求める（数牌は+1、風牌・三元牌は各巡目で循環） */
+export function doraFromIndicator(indicator: TileNotation): TileNotation {
+  const { rank, suit } = parseTile(indicator)
+
+  if (suit === 'z') {
+    if (rank <= 4) {
+      return `${(rank % 4) + 1}z`
+    }
+    const dragonIndex = rank - 5
+    return `${5 + ((dragonIndex + 1) % 3)}z`
+  }
+
+  return `${(rank % 9) + 1}${suit}`
+}

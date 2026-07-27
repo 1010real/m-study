@@ -42,7 +42,6 @@ export function QuizPage() {
         <ScoreTracker correct={session.score.correct} total={session.score.total} />
       </div>
 
-      {question.title && <h2 className="question-title">{question.title}</h2>}
       <HandDisplay question={question} />
 
       <p className="prompt">この和了の点数はいくつでしょう？</p>
@@ -53,6 +52,7 @@ export function QuizPage() {
           <p className={`result-message ${selectedChoice?.isCorrect ? 'correct' : 'incorrect'}`}>
             {selectedChoice?.isCorrect ? '正解！' : '不正解…'}
           </p>
+          {question.title && <h2 className="question-title">{question.title}</h2>}
           <BreakdownPanel breakdown={breakdown} />
           <button type="button" className="next-button" onClick={session.next}>
             次の問題へ
