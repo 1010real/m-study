@@ -20,7 +20,7 @@ export function parseTile(notation: TileNotation): ParsedTile {
   const rank = Number(match[1])
   const suit = match[2] as 'm' | 'p' | 's' | 'z'
   const index = rank - 1
-  const imageSrc = `/tiles/${notation}.svg`
+  const imageSrc = `${import.meta.env.BASE_URL}tiles/${notation}.svg`
 
   if (suit === 'z') {
     return { notation, rank, suit, label: HONOR_LABEL[index], imageSrc }
