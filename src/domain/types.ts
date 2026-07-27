@@ -90,6 +90,14 @@ export interface QuestionContext {
   ippatsu: boolean
   seatWind: Wind
   roundWind: Wind
+  /** 海底摸月（山の最後の牌でツモ和了） */
+  haitei: boolean
+  /** 河底撈魚（最後の捨て牌でロン和了） */
+  houtei: boolean
+  /** 嶺上開花（槓の嶺上牌でツモ和了） */
+  rinshan: boolean
+  /** 槍槓（他家の加槓をロン） */
+  chankan: boolean
 }
 
 export type ScoreName = 'mangan' | 'haneman' | 'baiman' | 'sanbaiman' | 'yakuman'

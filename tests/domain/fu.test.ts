@@ -26,6 +26,10 @@ describe('computeFu', () => {
         ippatsu: false,
         seatWind: 'E',
         roundWind: 'E',
+        haitei: false,
+        houtei: false,
+        rinshan: false,
+        chankan: false,
       },
       fuComponents: [{ type: 'base', label: '副底', value: 20 }],
     })
@@ -43,6 +47,10 @@ describe('computeFu', () => {
         ippatsu: false,
         seatWind: 'E',
         roundWind: 'E',
+        haitei: false,
+        houtei: false,
+        rinshan: false,
+        chankan: false,
       },
       fuComponents: [{ type: 'base', label: '副底', value: 20 }],
     })
@@ -80,6 +88,10 @@ describe('computeFu', () => {
         ippatsu: false,
         seatWind: 'E',
         roundWind: 'E',
+        haitei: false,
+        houtei: false,
+        rinshan: false,
+        chankan: false,
       },
       yaku: [{ id: 'pinfu', han: 1 }],
       fuComponents: [

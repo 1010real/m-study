@@ -24,7 +24,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --text: #e5e4e7;
     --text-muted: #9ca3af;
     --bg: #16171d;
@@ -43,6 +43,31 @@
     --tile-s: #6ee7a3;
     --tile-z: #e5e4e7;
   }
+}
+
+:root[data-theme='dark'] {
+  --text: #e5e4e7;
+  --text-muted: #9ca3af;
+  --bg: #16171d;
+  --panel-bg: #1f2028;
+  --border: #2e303a;
+  --accent: #c084fc;
+  --accent-bg: rgba(192, 132, 252, 0.15);
+  --correct: #4ade80;
+  --correct-bg: rgba(74, 222, 128, 0.15);
+  --incorrect: #f87171;
+  --incorrect-bg: rgba(248, 113, 113, 0.15);
+  --shadow: rgba(0, 0, 0, 0.4) 0 4px 12px -2px;
+  --tile-bg: #2a2b33;
+  --tile-m: #f87171;
+  --tile-p: #7fb3ff;
+  --tile-s: #6ee7a3;
+  --tile-z: #e5e4e7;
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
 }
 
 * {
@@ -68,4 +93,30 @@ h1 {
 h2 {
   font-size: 16px;
   margin: 0 0 8px;
+}
+
+.app-header {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel-bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
