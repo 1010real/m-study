@@ -37,40 +37,18 @@
 }
 
 .tile {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 34px;
-  height: 44px;
-  padding: 0 4px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: var(--tile-bg);
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.tile-m {
-  color: var(--tile-m);
-}
-
-.tile-p {
-  color: var(--tile-p);
-}
-
-.tile-s {
-  color: var(--tile-s);
-}
-
-.tile-z {
-  color: var(--tile-z);
+  display: block;
+  width: 34px;
+  height: 46px;
+  border-radius: 4px;
+  box-shadow: var(--shadow);
 }
 
 .win-tile {
   margin-left: 10px;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-radius: 4px;
 }
 
 .melds {

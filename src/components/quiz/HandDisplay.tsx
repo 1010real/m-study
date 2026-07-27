@@ -1,4 +1,5 @@
 import { renderHand } from '../../domain/tiles.ts'
+import type { ParsedTile } from '../../domain/tiles.ts'
 import type { MeldKind, Question, Wind } from '../../domain/types.ts'
 
 const WIND_LABEL: Record<Wind, string> = { E: '東', S: '南', W: '西', N: '北' }
@@ -33,6 +34,10 @@ function contextBadges(question: Question): string[] {
   return badges
 }
 
+function Tile({ tile, highlight = false }: { tile: ParsedTile; highlight?: boolean }) {
+  return <img className={`tile${highlight ? ' win-tile' : ''}`} src={tile.imageSrc} alt={tile.label} width={34} height={46} />
+}
+
 export function HandDisplay({ question }: { question: Question }) {
   const handTiles = renderHand(question.hand)
   const winTile = renderHand([question.winningTile])[0]
@@ -44,11 +49,9 @@ export function HandDisplay({ question }: { question: Question }) {
     <div className="hand-display">
       <div className="tiles">
         {handTiles.map((tile, i) => (
-          <span key={i} className={`tile tile-${tile.suit}`}>
-            {tile.label}
-          </span>
+          <Tile key={i} tile={tile} />
         ))}
-        <span className={`tile tile-${winTile.suit} win-tile`}>{winTile.label}</span>
+        <Tile tile={winTile} highlight />
       </div>
 
       {question.melds && question.melds.length > 0 && (
@@ -57,9 +60,7 @@ export function HandDisplay({ question }: { question: Question }) {
             <div key={i} className="meld">
               <span className="meld-label">{meldLabel(meld.kind)}</span>
               {renderHand(meld.tiles).map((tile, j) => (
-                <span key={j} className={`tile tile-${tile.suit}`}>
-                  {tile.label}
-                </span>
+                <Tile key={j} tile={tile} />
               ))}
             </div>
           ))}
@@ -72,9 +73,7 @@ export function HandDisplay({ question }: { question: Question }) {
             <div className="indicator-row">
               <span className="indicator-label">ドラ表示牌</span>
               {doraIndicators.map((tile, i) => (
-                <span key={i} className={`tile tile-${tile.suit}`}>
-                  {tile.label}
-                </span>
+                <Tile key={i} tile={tile} />
               ))}
             </div>
           )}
@@ -82,9 +81,7 @@ export function HandDisplay({ question }: { question: Question }) {
             <div className="indicator-row">
               <span className="indicator-label">裏ドラ表示牌</span>
               {uraDoraIndicators.map((tile, i) => (
-                <span key={i} className={`tile tile-${tile.suit}`}>
-                  {tile.label}
-                </span>
+                <Tile key={i} tile={tile} />
               ))}
             </div>
           )}
