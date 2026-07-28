@@ -13,12 +13,19 @@ export interface ParsedTile {
 }
 
 export function parseTile(notation: TileNotation): ParsedTile {
-  const match = /^([1-9])([mpsz])$/.exec(notation)
+  // "0m"/"0p"/"0s" は赤ドラ（赤5）を表す特別表記
+  const match = /^([0-9])([mpsz])$/.exec(notation)
   if (!match) {
     throw new Error(`不正な牌表記: ${notation}`)
   }
-  const rank = Number(match[1])
+  const rawRank = Number(match[1])
   const suit = match[2] as 'm' | 'p' | 's' | 'z'
+  const isRedFive = rawRank === 0
+  if (isRedFive && suit === 'z') {
+    throw new Error(`不正な牌表記: ${notation}`)
+  }
+
+  const rank = isRedFive ? 5 : rawRank
   const index = rank - 1
   const imageSrc = `${import.meta.env.BASE_URL}tiles/${notation}.svg`
 
@@ -26,7 +33,8 @@ export function parseTile(notation: TileNotation): ParsedTile {
     return { notation, rank, suit, label: HONOR_LABEL[index], imageSrc }
   }
 
-  return { notation, rank, suit, label: `${rank}${SUIT_KANJI[suit]}`, imageSrc }
+  const label = isRedFive ? `赤${rank}${SUIT_KANJI[suit]}` : `${rank}${SUIT_KANJI[suit]}`
+  return { notation, rank, suit, label, imageSrc }
 }
 
 export function renderHand(tiles: TileNotation[]): ParsedTile[] {
