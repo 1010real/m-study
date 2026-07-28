@@ -167,7 +167,7 @@ export const basicYakuQuestions: Question[] = [
   {
     id: 'q016',
     title: 'リーチ・ピンフ・タンヤオ・自摸＋ドラ／裏ドラ／赤ドラ',
-    hand: ['2m', '3m', '4m', '4m', '5m', '6m', '2p', '3p', '4p', '3s', '3s', '6s', '7s'],
+    hand: ['2m', '3m', '4m', '4m', '0m', '6m', '2p', '3p', '4p', '3s', '3s', '6s', '7s'],
     winningTile: '8s',
     context: {
       seat: 'nonDealer',

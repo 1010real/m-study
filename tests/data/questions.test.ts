@@ -46,6 +46,14 @@ describe('questions data', () => {
     }
   })
 
+  it.each(questions.map((q) => [q.id, q] as const))('%s: 赤ドラ（0m/0p/0s）の枚数が宣言されたakadora数と一致する', (_id, question) => {
+    const meldTiles = question.melds?.flatMap((m) => m.tiles) ?? []
+    const allTiles = [...question.hand, question.winningTile, ...meldTiles]
+    const redFiveCount = allTiles.filter((t) => t === '0m' || t === '0p' || t === '0s').length
+    const declaredAkadora = question.dora.filter((d) => d.kind === 'akadora').reduce((sum, d) => sum + d.count, 0)
+    expect(redFiveCount).toBe(declaredAkadora)
+  })
+
   const situationalFlags = [
     ['haitei', 'haitei'],
     ['houtei', 'houtei'],
